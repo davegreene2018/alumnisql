@@ -1,0 +1,25 @@
+
+   <% @user.each do |user| %>
+   <h3 class="title is-5 has-text-black-light"><%= user.username %></h3>
+   <%= gravatar_image_tag(user.email, class:'border-radius-50', size: 48, alt: user.username) %>
+   <hr />
+  
+  
+  
+  <h3 class="title is-5 has-text-black-light">Info</h3>
+    	<p><strong>First name:</strong> <%= user.firstname %></p>
+    	<p><strong>Last name:</strong> <%= user.lastname %></p>
+    	<p><strong>College:</strong> <%= user.college %></p>
+    	<p><strong>Joined:</strong> <%= time_ago_in_words(user.created_at) %> ago </p>
+     
+   
+  <% end %>
+<hr />
+  <h3 class="title is-5 has-text-black-light">Recent forum posts</h3>
+  <% @recentforum.each do |forum| %>
+    <p><strong><%= forum.title %></strong> <%= time_ago_in_words(forum.created_at) %> ago </p>
+    <% end %>
+  <br/>
+
+  
+
